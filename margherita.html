@@ -160,6 +160,16 @@ wood-fired oven, it offers a simple yet delicious authentic Italian flavor.
 </div>
 
 </div>
+<audio id="bgMusic" loop>
+    <source src="pizzas.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+    music.play();
+}, { once: true });
+</script>
 </body>
 </html>
