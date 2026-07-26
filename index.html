@@ -370,24 +370,21 @@ to serving authentic Italian flavors.
 <p>© 2026 Luigi's Pizzeria • All Rights Reserved</p>
 
 </footer>
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop preload="auto">
     <source src="pizzas.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
 </audio>
 
 <script>
 const music = document.getElementById("bgMusic");
 
-function startMusic() {
-    music.play().catch(() => {});
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("keydown", startMusic);
-    document.removeEventListener("touchstart", startMusic);
-}
-
-document.addEventListener("click", startMusic);
-document.addEventListener("keydown", startMusic);
-document.addEventListener("touchstart", startMusic);
+document.body.addEventListener("click", async () => {
+    try {
+        await music.play();
+        console.log("Music started!");
+    } catch (err) {
+        console.error(err);
+    }
+}, { once: true });
 </script>
 </body>
 </html>
